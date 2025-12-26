@@ -1,4 +1,6 @@
 // app/dashboard/page.tsx
+'use client';
+
 import Image from "next/image";
 
 const statCards = [
@@ -39,6 +41,8 @@ export default function DashboardPage() {
       <header
         id="welcome-bar"
         className="flex items-center justify-between bg-[#181b2d] rounded-2xl px-8 py-5 shadow-lg"
+        data-aos="fade-down"
+        data-aos-duration="800"
       >
         <div>
           <p className="text-sm text-gray-200">Welcome Back, Admin!</p>
@@ -50,12 +54,16 @@ export default function DashboardPage() {
           <button
             id="btn-new-report"
             className="px-4 py-2 rounded-full bg-pink-600 text-xs font-semibold"
+            data-aos="zoom-in"
+            data-aos-delay="100"
           >
             + New Report
           </button>
           <button
             id="btn-admin"
             className="px-4 py-2 rounded-full bg-[#0F1220] text-xs"
+            data-aos="zoom-in"
+            data-aos-delay="200"
           >
             Admin
           </button>
@@ -63,12 +71,17 @@ export default function DashboardPage() {
       </header>
 
       {/* Stat cards */}
-      <div id="stats-grid" className="grid grid-cols-4 gap-5">
-        {statCards.map((card) => (
+      <div
+        id="stats-grid"
+        className="grid grid-cols-4 gap-5"
+      >
+        {statCards.map((card, index) => (
           <div
             key={card.id}
             id={`card-${card.id}`}
             className="rounded-[32px] bg-[#7a1b58] px-6 py-6 shadow-md text-xs opacity-80"
+            data-aos="zoom-in"
+            data-aos-delay={index * 100}
           >
             <div className="mb-6">
               <div className="w-11 h-11 rounded-2xl bg-pink-600 flex items-center justify-center">
@@ -110,6 +123,8 @@ export default function DashboardPage() {
         <div
           id="revenue-chart-card"
           className="col-span-2 bg-[#181b2d] rounded-2xl p-5"
+          data-aos="fade-up"
+          data-aos-duration="800"
         >
           <div className="flex items-center justify-between mb-4 text-xs">
             <span className="text-gray-200">REVENUE CHART</span>
@@ -123,6 +138,8 @@ export default function DashboardPage() {
                       ? "bg-pink-600 text-white"
                       : "bg-[#0F1220] text-gray-400"
                   }`}
+                  data-aos="fade-up"
+                  data-aos-delay={idx * 80}
                 >
                   {t}
                 </button>
@@ -138,6 +155,8 @@ export default function DashboardPage() {
         <div
           id="top-games-card"
           className="bg-[#181b2d] rounded-2xl p-5"
+          data-aos="fade-left"
+          data-aos-duration="800"
         >
           <p className="text-xs text-gray-200 mb-4">TOP GAMES</p>
           <div
@@ -151,6 +170,9 @@ export default function DashboardPage() {
       <div
         id="recent-transactions-card"
         className="bg-[#181b2d] rounded-2xl p-5 space-y-4"
+        data-aos="fade-up"
+        data-aos-offset="120"
+        data-aos-duration="800"
       >
         <div className="flex items-center justify-between">
           <p className="text-xs text-gray-200">RECENT TRANSACTIONS</p>
@@ -194,6 +216,8 @@ export default function DashboardPage() {
                 <tr
                   key={i}
                   className="border-t border-[#262b3d] hover:bg-[#202538]"
+                  data-aos="fade-up"
+                  data-aos-delay={i * 40}
                 >
                   {Array.from({ length: 13 }).map((__, j) => (
                     <td
